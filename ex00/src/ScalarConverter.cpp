@@ -6,7 +6,7 @@
 /*   By: kmaeda <kmaeda@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:55 by kmaeda            #+#    #+#             */
-/*   Updated: 2026/01/31 12:55:10 by kmaeda           ###   ########.fr       */
+/*   Updated: 2026/02/10 16:48:54 by kmaeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ void ScalarConverter::printResult(type type, char c, float f, double d, const st
 void ScalarConverter::convert(const std::string& string) {
 	type detectedType = checkType(string);
 	
-	char c;
-	float f;
-	double d;
+	char c = 0;
+	float f = 0.0f;
+	double d = 0.0;
 	
 	switch (detectedType) {
 		case CHAR:
