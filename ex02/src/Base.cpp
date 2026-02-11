@@ -6,7 +6,7 @@
 /*   By: kmaeda <kmaeda@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 16:22:58 by kmaeda            #+#    #+#             */
-/*   Updated: 2026/02/10 17:25:36 by kmaeda           ###   ########.fr       */
+/*   Updated: 2026/02/11 17:36:34 by kmaeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,18 @@ Base* generate() {
 }
 
 void identify(Base* p) {
+	if (!p) {
+		std::cout << "NULL pointer" << std::endl;
+		return;
+	}
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))
 		std::cout << "B" << std::endl;
-	else
+	else if (dynamic_cast<C*>(p))
 		std::cout << "C" << std::endl;
+	else
+		std::cout << "Unknown type" << std::endl;
 }
 
 void identify(Base& p) {

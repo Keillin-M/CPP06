@@ -6,7 +6,7 @@
 /*   By: kmaeda <kmaeda@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 16:21:36 by kmaeda            #+#    #+#             */
-/*   Updated: 2026/02/10 16:21:38 by kmaeda           ###   ########.fr       */
+/*   Updated: 2026/02/11 17:36:34 by kmaeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,13 @@ int main() {
 	delete a;
 	delete b;
 	delete c;
+	
+	std::cout << "=== Edge Cases ==" << std::endl << std::endl;
+	
+	std::cout << "NULL pointer test:" << std::endl;
+	std::cout << "  Pointer: ";
+	identify(NULL);
+	std::cout << std::endl;
 	
 	return 0;
 }
