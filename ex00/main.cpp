@@ -6,20 +6,9 @@
 /*   By: kmaeda <kmaeda@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:07 by kmaeda            #+#    #+#             */
-/*   Updated: 2026/03/26 13:41:57 by kmaeda           ###   ########.fr       */
+/*   Updated: 2026/03/26 16:04:56 by kmaeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*#include "ScalarConverter.hpp"
-
-int main(int argc, char **argv) {
-    if (argc != 2) {
-        std::cerr << "Usage: " << argv[0] << " <literal>" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(argv[1]);
-    return 0;
-}*/
 
 #include <iostream>
 #include <string>
@@ -27,7 +16,7 @@ int main(int argc, char **argv) {
 
 int main (int argc, char **argv) {
     if (argc != 2) {
-        std::cout << "Correct usage: ./convert + arg to be converted" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " <literal>" << std::endl;
         return 1;
     }
     ScalarConverter::convert(argv[1]);
