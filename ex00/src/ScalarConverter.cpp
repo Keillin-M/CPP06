@@ -6,7 +6,7 @@
 /*   By: kmaeda <kmaeda@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:55 by kmaeda            #+#    #+#             */
-/*   Updated: 2026/02/10 16:48:54 by kmaeda           ###   ########.fr       */
+/*   Updated: 2026/03/26 13:31:08 by kmaeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ bool isDouble(const std::string& s) {
 	std::istringstream iss(s);
 	double d;
 	char c;
-	if (!(iss >> d))
+	if (!(iss >> d)) // try extract double
 		return false;
-	if (iss >> c)
+	if (iss >> c) // check for leftover char
 		return false;
-	if (!s.empty() && s[s.length() - 1] == 'f')
-        return false;
     return true;
 }
 
@@ -51,20 +49,8 @@ ScalarConverter::type ScalarConverter::checkType(const std::string& string) {
 	return UNKNOWN;
 }
 
-void ScalarConverter::printResult(type type, char c, float f, double d, const std::string& s) {
-	if (type == FLOAT_PSEUDO || type == DOUBLE_PSEUDO) {
-		std::cout << "char: impossible" << std::endl;
-	    std::cout << "int: impossible" << std::endl;
-		if (type == FLOAT_PSEUDO) {
-			std::cout << "float: " << s << std::endl;
-    		std::cout << "double: " << s.substr(0, s.length() - 1) << std::endl;
-		}
-		else {
-			std::cout << "float: " << s << "f" << std::endl;
-    		std::cout << "double: " << s << std::endl;
-		}
-	}
-	else if (type == UNKNOWN) {
+void ScalarConverter::printResult(type type, char c, float f, double d) {
+	if (type == UNKNOWN) {
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: impossible" << std::endl;
@@ -88,6 +74,24 @@ void ScalarConverter::printResult(type type, char c, float f, double d, const st
 	}
 }
 
+void ScalarConverter::printPseudo(type type, const std::string& s) {
+	std::string floatValue;
+	std::string doubleValue;
+	
+	if (type == FLOAT_PSEUDO) {
+		floatValue = s;
+    	doubleValue = s.substr(0, s.length() - 1);
+	}
+	else {
+		floatValue = s + "f";
+    	doubleValue = s;
+	}
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << floatValue << std::endl;
+    std::cout << "double: " << doubleValue << std::endl;
+}
+
 void ScalarConverter::convert(const std::string& string) {
 	type detectedType = checkType(string);
 	
@@ -95,6 +99,10 @@ void ScalarConverter::convert(const std::string& string) {
 	float f = 0.0f;
 	double d = 0.0;
 	
+	if (detectedType == FLOAT_PSEUDO || detectedType == DOUBLE_PSEUDO) {
+		printPseudo(detectedType, string);
+		return ;
+	}
 	switch (detectedType) {
 		case CHAR:
 			c = string[0];
@@ -114,5 +122,6 @@ void ScalarConverter::convert(const std::string& string) {
 		default:
 			break;
 	}
-	printResult(detectedType, c, f, d, string);
+	printResult(detectedType, c, f, d);
+	return ;
 }
