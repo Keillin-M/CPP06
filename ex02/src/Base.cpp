@@ -6,7 +6,7 @@
 /*   By: kmaeda <kmaeda@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 16:22:58 by kmaeda            #+#    #+#             */
-/*   Updated: 2026/02/11 17:36:34 by kmaeda           ###   ########.fr       */
+/*   Updated: 2026/03/26 14:24:43 by kmaeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include "../include/A.hpp"
 #include "../include/B.hpp"
 #include "../include/C.hpp"
-#include <cstdlib>
-#include <iostream>
-#include <exception>
 
 Base::~Base() {}
 

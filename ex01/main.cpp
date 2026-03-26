@@ -6,7 +6,7 @@
 /*   By: kmaeda <kmaeda@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 14:53:32 by kmaeda            #+#    #+#             */
-/*   Updated: 2026/02/04 20:30:57 by kmaeda           ###   ########.fr       */
+/*   Updated: 2026/03/26 14:52:03 by kmaeda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int main() {
     Data d;
     d.value = 42;
-
+    std::cout << "Value before: " << d.value << std::endl;
+    
     uintptr_t raw = Serializer::serialize(&d);
     Data* ptr = Serializer::deserialize(raw);
 
