@@ -1,6 +1,6 @@
 NAME = ex02
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
 INCLUDES = -I include
 
 SRC_DIR = src
